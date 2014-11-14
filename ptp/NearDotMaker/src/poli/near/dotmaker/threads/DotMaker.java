@@ -1,45 +1,45 @@
 package poli.near.dotmaker.threads;
 
 /*
- * Cï¿½digo de manipulaï¿½ï¿½o de cï¿½mera e escolha de destino
+ * Código de manipulação de câmera e escolha de destino
  * 25/09/2014
  * Gabriel Alves de Lima
  * 
  * Legenda:
- * 	Classe - modelagem de objetos, estereï¿½tipo de coisas reais ou abstratas (Ex. Carro ï¿½ uma
- * 			 classe de objetos que tem motor, direï¿½ï¿½o, pedais, bancos, pneus, etc.)
- * 	Atributos - caracterï¿½sticas de um objeto, o que ï¿½ usado para modelar o objeto
- * 				(Ex. um carro pode variar. ï¿½ uma caracterï¿½stica, um atributo)
- * 	Mï¿½todos - Meios de comunicaï¿½ï¿½o do objeto o qual se faz por uma aï¿½ï¿½o (Funï¿½ï¿½es em C)
- * 				(Ex. acelerar ï¿½ uma aï¿½ï¿½o que o objeto carro realiza, portanto, um mï¿½todo)
- * 	Objeto - Um local da memï¿½ria caracterizado por seus atributos e um tipo (A classe a qual o
+ * 	Classe - modelagem de objetos, estereótipo de coisas reais ou abstratas (Ex. Carro é uma
+ * 			 classe de objetos que tem motor, direção, pedais, bancos, pneus, etc.)
+ * 	Atributos - características de um objeto, o que é usado para modelar o objeto
+ * 				(Ex. um carro pode variar. É uma característica, um atributo)
+ * 	Métodos - Meios de comunicação do objeto o qual se faz por uma ação (Funções em C)
+ * 				(Ex. acelerar é uma ação que o objeto carro realiza, portanto, um método)
+ * 	Objeto - Um local da memória caracterizado por seus atributos e um tipo (A classe a qual o
  * 		     objeto pertence).
- * 				(Ex. o carro ï¿½ uma criaï¿½ï¿½o (instï¿½ncia) da classe Carro)
- * 	Heranï¿½a - Mecanismo de hereditariedade de mï¿½todos e atributos permitidos de uma classe a 
- * 			  outra. Gera uma hierarquia e garante o polimorfismo, porï¿½m fere o encapsulamento
- * 				(Ex. Carro ï¿½ uma superclasse e Sedan ï¿½ uma subclasse. Sedan herda todas as
- * 				caracterï¿½sticas de um carro e tem outras mais.)
- * 	Polimorfismo - Capacidade de um tipo ser vï¿½rios ao mesmo tempo (ex. Sedan ï¿½ um carro,
+ * 				(Ex. o carro é uma criação (instância) da classe Carro)
+ * 	Herança - Mecanismo de hereditariedade de métodos e atributos permitidos de uma classe a 
+ * 			  outra. Gera uma hierarquia e garante o polimorfismo, porém fere o encapsulamento
+ * 				(Ex. Carro é uma superclasse e Sedan é uma subclasse. Sedan herda todas as
+ * 				características de um carro e tem outras mais.)
+ * 	Polimorfismo - Capacidade de um tipo ser vários ao mesmo tempo (ex. Sedan é um carro,
  * 					ou seja, o Sedan pode ser referido como um carro qualquer) gerando a 
  * 					possibilidade de se referir a um tipo como outro mais geral.
  * 	Encapsulamento - Tratamento dos dados de modo a dar privacidade a alguns valores,
- * 				     para dar seguranï¿½a ao sistema.
- * 					(Ex. Os valores utilizados pelo mï¿½todo acelerar nï¿½o precisam ser expostos.
- * 					Isso garante robustez e seguranï¿½a).
- * 	Interface - Tipo de modelagem que necessita de implementaï¿½ï¿½o, garantindo polimorfismo,
+ * 				     para dar segurança ao sistema.
+ * 					(Ex. Os valores utilizados pelo método acelerar não precisam ser expostos.
+ * 					Isso garante robustez e segurança).
+ * 	Interface - Tipo de modelagem que necessita de implementação, garantindo polimorfismo,
  * 				funcionando como um contrato
  * 				(Ex. Uma interface seria MeioDeTransporte. Todo meio de transporte deve ter 
- * 				movimento. Se esse contrato for cumprido, esse objeto serï¿½ um meio de transporte)
+ * 				movimento. Se esse contrato for cumprido, esse objeto será um meio de transporte)
  * 
  * *********************************************************************************************
  * 
- * Classe DotMaker - Classe principal do programa, possui o mï¿½todo main()
+ * Classe DotMaker - Classe principal do programa, possui o método main()
  * Classe ShowImage - Ao ser instanciada, a classe gera uma imagem em um JFrame
  * Classe ShowImagePanel - Ao ser instanciada, a classe gera um JPanel com uma imagem
- * Classe GetStartingImage - Liga a cï¿½mera e pega a imagem inicial
- * Classe MouseGetter - Busca algumas informaï¿½ï¿½es sobre o mouse
- * Classe CustomMouseListener - ï¿½ uma classe ouvinte (classes ouvintes tem a finalidade de
- * 								captar aï¿½ï¿½es vindas do usuï¿½rios) e ouve o mouse.
+ * Classe GetStartingImage - Liga a câmera e pega a imagem inicial
+ * Classe MouseGetter - Busca algumas informações sobre o mouse
+ * Classe CustomMouseListener - É uma classe ouvinte (classes ouvintes tem a finalidade de
+ * 								captar ações vindas do usuários) e ouve o mouse.
  */
 
 //Mesmo que #include
@@ -65,14 +65,14 @@ import poli.near.dotmaker.image.ShowImagePanel;
 import poli.near.dotmaker.mouse.CustomMouseListener;
 import poli.near.dotmaker.mouse.MouseGetter;
 
-//Linha desnecessï¿½ria, na verdade. Apenas uma anotaï¿½ï¿½o da IDE para suprimir avisos
+//Linha desnecessária, na verdade. Apenas uma anotação da IDE para suprimir avisos
 @SuppressWarnings("unused")
 public class DotMaker {
 	//400 -> 524-124
-	public static final String IMAGE_PATH = System.getProperty("user.home") + "\\eclipse-workspace\\NearDotMaker\\test-0.jpg";
+	public static final String IMAGE_PATH = System.getProperty("user.home") + "\\workspace\\NearDotMaker\\test-0.jpg";
 	private static final String CONNECTION_URL = "btspp://001106220310:1" + "";
 	
-	//Mï¿½todo main - Inï¿½cio do programa
+	//Método main - Início do programa
 	public static void main(String[] args) {
 		boolean shouldWait = true;   				
 		
@@ -97,6 +97,7 @@ public class DotMaker {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		ShowImagePanel sip = new ShowImagePanel(IMAGE_PATH);
 		ShowImage si = new ShowImage(sip, 0, 100);  
 		Thread swc = new Thread(new WebcamThread(660, 100));

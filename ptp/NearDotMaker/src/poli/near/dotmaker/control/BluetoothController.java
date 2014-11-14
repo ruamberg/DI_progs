@@ -36,6 +36,11 @@ public class BluetoothController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		if(st != 'd') {
+			st = '\0';
+		}
+		
 		return st;
 	}
 	

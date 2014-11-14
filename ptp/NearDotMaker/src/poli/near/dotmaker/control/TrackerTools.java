@@ -6,6 +6,15 @@ import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import com.github.sarxos.webcam.Webcam;
+
+import javax.imageio.ImageIO;
+
+import poli.near.dotmaker.threads.DotMaker;
 
 public class TrackerTools {
 	private int width = 0;
@@ -28,11 +37,14 @@ public class TrackerTools {
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
+		System.err.println("Print!");
 		BufferedImage screenCapturedImage = robot.createScreenCapture(screenRect);
 		return screenCapturedImage;
 	}
 	
-	/*private BufferedImage takeSnapshot() {
+	
+	
+	public BufferedImage takeSnapshot() {
 	    List<Webcam> webcams = Webcam.getWebcams();
 		
 	    BufferedImage image = null;
@@ -42,13 +54,13 @@ public class TrackerTools {
 			Webcam webcam = webcams.get(0);
 			file = new File(String.format("test-%d.jpg", 0));
 			ImageIO.write(webcam.getImage(), "JPG", file);
-			System.out.println("Snap!");
+			System.err.println("Snap!");
 			image = ImageIO.read(new File(DotMaker.IMAGE_PATH));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		return image;
-	}*/
+	}
 	
 	public void seeNewSides(int[][] tom) { 
 		center[0] = -1; center[1] = 0;

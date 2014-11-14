@@ -2,9 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="/home/gabriel/Downloads/eclipse/jars/bluecove-2.1.1/bluecove-2.1.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="/home/gabriel/Downloads/eclipse/jars/sarxos/webcam-capture-0.3.10-RC4.jar"/>
-	<classpathentry kind="lib" path="/home/gabriel/Downloads/eclipse/jars/sarxos/libs/bridj-0.7-20130703.103049-42.jar"/>
-	<classpathentry kind="lib" path="/home/gabriel/Downloads/eclipse/jars/sarxos/libs/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/Downloads/webcam-capture-0.3.10-RC4-dist/webcam-capture-0.3.10-RC4.jar" sourcepath="C:/Users/Gabriel/Downloads/webcam-capture-0.3.10-RC4-dist"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/Downloads/webcam-capture-0.3.10-RC4-dist/libs/bridj-0.7-20130703.103049-42.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gabriel/Downloads/webcam-capture-0.3.10-RC4-dist/libs/slf4j-api-1.7.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -69,7 +69,8 @@ import poli.near.dotmaker.mouse.MouseGetter;
 @SuppressWarnings("unused")
 public class DotMaker {
 	//400 -> 524-124
-	public static final String IMAGE_PATH = System.getProperty("user.home") + "\\workspace\\NearDotMaker\\test-0.jpg";
+	private static final char FS = System.getProperty("file.separator");
+	public static final String IMAGE_PATH = System.getProperty("user.home") + FS + "workspace" + FS + "NearDotMaker" + FS + "test-0.jpg";
 	private static final String CONNECTION_URL = "btspp://001106220310:1" + "";
 	
 	//Método main - Início do programa

@@ -28,15 +28,15 @@ public class BluetoothController {
 	}
 	
 	public static String receiveMessage() {
-		String message = "";
+		StringBuffer message = new StringBuffer("");
 		try {
 			while(in.ready()) {
-				message = message + in.read(); 
+				message.append(in.read()); 
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return message;
+		return message.toString();
 	}
 	
 	public static void closeConnection() {

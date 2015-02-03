@@ -8,9 +8,11 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 import com.controller.ClickListener;
 import com.controller.BluetoothController;
 import com.controller.MouseGetter;
@@ -24,7 +26,7 @@ public class Joystick extends JFrame {
 		this.addWindowListener(new WindowAdapter() {  
 		    public void windowClosing(WindowEvent evt) {  
 		        if (JOptionPane.showConfirmDialog(null,"Deseja sair?") == JOptionPane.YES_OPTION){  
-		            //BluetoothController.closeConnection();
+		            BluetoothController.closeConnection();
 		        	System.exit(0);}  
 		    }  
 		});
@@ -51,7 +53,12 @@ public class Joystick extends JFrame {
 			}
 			vector = coordinates[0] + "|" + coordinates[1];
 			System.out.println(vector);
-			//BluetoothController.sendMessage(vector);
+			BluetoothController.sendMessage(vector);
+			try {
+				Thread.sleep(1);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			do {
 				received = BluetoothController.receiveMessage(); 
 			}
@@ -63,14 +70,14 @@ public class Joystick extends JFrame {
 @SuppressWarnings("serial")
 class Imaging extends JPanel {
 	private static final String FS = System.getProperty("file.separator");
-	private static final String IMAGE_NAME = System.getProperty("user.home") + FS + "workspace" + FS + "JoystickCP" + FS + "bg.gif"; 
+	private static final String IMAGE_NAME = System.getProperty("user.home") + FS + "bg.gif"; 
 	private Image image = Toolkit.getDefaultToolkit().createImage(IMAGE_NAME);
 	public int centerX = 0;
 	public int centerY = 0;
 	
 	public Imaging(Point pointer) {
 		this.addMouseListener(new ClickListener(this));
-		centerX = (int) pointer.getX() - 102;
+		centerX = (int) pointer.getX() - 122;
 		centerY = (int) pointer.getY() + 180;
 	}
 	

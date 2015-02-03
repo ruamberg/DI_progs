@@ -40,10 +40,12 @@ public class BluetoothController {
 	}
 	
 	public static void closeConnection() {
-		try {
-			conn.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		if(conn != null) {
+			try {
+				conn.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

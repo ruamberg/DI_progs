@@ -29,8 +29,9 @@ public class BluetoothController {
 	
 	public static String receiveMessage() {
 		StringBuffer message = new StringBuffer("");
+		long startingTime = System.currentTimeMillis();
 		try {
-			while(in.ready()) {
+			while(in.ready() && System.currentTimeMillis() - startingTime < 300) {
 				message.append(in.read()); 
 			}
 		} catch (IOException e) {

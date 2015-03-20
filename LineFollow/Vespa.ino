@@ -10,14 +10,14 @@
 
 //CONSTANTES DE AUXÍLIO
 #define CORRECTION(a,b,c) a+b+c
-#define NUMSENSORS 10
+#define NUMSENSORS 11
 
 /******* CONFIGURAÇÃO PARA OS SENSORES *********/
 
-	int line[NUMSENSORS] = {22, 24, 26, 28, 30, 32, 34, 36, 38, 40};
+	int sensor[NUMSENSORS] = {22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42};
 	//Para esquema 1, -9, -7, -5, -3, -1, 1, 3, 5, 7, 9; 
 	//Para esquema 2, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90;
-	int error[NUMSENSORS] = {-9, -7, -5, -3, -1, 1, 3, 5, 7, 9};
+	int error[NUMSENSORS] = {-9, -7, -5, -3, -1, 0, 1, 3, 5, 7, 9};
 
 /******** CONFIGURAÇÃO PARA OS MOTORES **********/
 
@@ -39,7 +39,7 @@ void setup() {
 	//Definição das portas dos sensores como input e dos motores como output
 	int i = 0;
 	for(i = 0; i < NUMSENSORS; i++) {
-		pinMode(line[i], INPUT);
+		pinMode(sensor[i], INPUT);
 	}
 
 	for(i = 0; i < 2; i++) {
@@ -62,13 +62,25 @@ void loop() {
 
 	prevErr = err;
 	iErr += err;
+
+	preventWindup();
+}
+
+void preventWindup() {
+	if(iErr >= maxSpeed)
+	{
+		iErr = iErr/3;
+	}
+	else if(err == 0) {
+		iErr = 0;
+	}
 }
 
 int getCurrentPoint() {
 	int i = 0;
 	int numerador = 0, denominador = 0;
 	for(i = 0; i < NUMSENSORS; i++) {
-		if(digitalRead(line[i]); {
+		if(!digitalRead(sensor[i]); {
 			denominador++;
 			numerador += error[i];
 		}
